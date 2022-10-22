@@ -5,19 +5,19 @@ DOMAIN-SUFFIX,bntrace.com
 DOMAIN-SUFFIX,bnbstatic.com
 DOMAIN-SUFFIX,dexscreener.com
 DOMAIN-SUFFIX,dexscreener.io
-DOMAIN-SUFFIX,linktr.ee
-DOMAIN-SUFFIX,s1.bycsi.com
-DOMAIN-SUFFIX,api2.branch.io
-DOMAIN-SUFFIX,tradingview.com
-DOMAIN-SUFFIX,byd3c3.com
-DOMAIN-SUFFIX,bybit.com
-DOMAIN-SUFFIX,ftx.tech
-DOMAIN-SUFFIX,ftx.com
-DOMAIN-SUFFIX,binance.cloud
-DOMAIN-SUFFIX,binancezh.be
-DOMAIN,okex.com
-DOMAIN-SUFFIX,duneanalytics.com
-DOMAIN-SUFFIX,dune.xyz
+DOMAIN-SUFFIX, linktr.ee
+DOMAIN-SUFFIX, s1.bycsi.com
+DOMAIN-SUFFIX, api2.branch.io
+DOMAIN-SUFFIX, tradingview.com
+DOMAIN-SUFFIX, byd3c3.com
+DOMAIN-SUFFIX, bybit.com
+DOMAIN-SUFFIX, ftx.tech
+DOMAIN-SUFFIX, ftx.com
+DOMAIN-SUFFIX, binance.cloud
+DOMAIN-SUFFIX, binancezh.be
+DOMAIN, okex.com
+DOMAIN-SUFFIX, duneanalytics.com
+DOMAIN-SUFFIX, dune.xyz
 DOMAIN-SUFFIX, alphafinance.io
 DOMAIN-SUFFIX, elliptic.co
 DOMAIN-SUFFIX, mintbase.io
@@ -39,3 +39,4 @@ DOMAIN-SUFFIX, mirror-media.xyz
 DOMAIN-SUFFIX, binance.im
 DOMAIN-SUFFIX, lilithgame.com
 DOMAIN-SUFFIX, justmysocks3.net
+DOMAIN-SUFFIX, gate.info
