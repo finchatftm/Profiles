@@ -8,7 +8,6 @@ DOMAIN-SUFFIX,dexscreener.io
 DOMAIN-SUFFIX,linktr.ee
 DOMAIN-SUFFIX,s1.bycsi.com
 DOMAIN-SUFFIX,api2.branch.io
-DOMAIN-SUFFIX,tradingview.com
 DOMAIN-SUFFIX,byd3c3.com
 DOMAIN-SUFFIX,bybit.com
 DOMAIN-SUFFIX,ftx.tech
@@ -16,15 +15,12 @@ DOMAIN-SUFFIX,ftx.com
 DOMAIN-SUFFIX,binance.cloud
 DOMAIN-SUFFIX,binancezh.be
 DOMAIN,okex.com
-DOMAIN-SUFFIX,duneanalytics.com
-DOMAIN-SUFFIX,dune.xyz
-DOMAIN-SUFFIX, online-metrix.net
-DOMAIN-SUFFIX, bnappzh.co
-DOMAIN-SUFFIX, myqcloud.com
-DOMAIN-SUFFIX, app-measurement.com
-DOMAIN-SUFFIX, bnbzh.ac
-DOMAIN-SUFFIX, binance.com
-DOMAIN-SUFFIX, binance.me
-DOMAIN-SUFFIX, binancefuture.com
-DOMAIN-SUFFIX, near.org
-DOMAIN-SUFFIX, binance.im
+DOMAIN-SUFFIX,online-metrix.net
+DOMAIN-SUFFIX,bnappzh.co
+DOMAIN-SUFFIX,myqcloud.com
+DOMAIN-SUFFIX,bnbzh.ac
+DOMAIN-SUFFIX,binance.com
+DOMAIN-SUFFIX,binance.me
+DOMAIN-SUFFIX,binancefuture.com
+DOMAIN-SUFFIX,near.org
+DOMAIN-SUFFIX,binance.im
