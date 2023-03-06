@@ -40,7 +40,8 @@ DOMAIN-SUFFIX,zksync.io
 DOMAIN-SUFFIX,boba.network
 
 # > Binance
-DOMAIN-SUFFIX,saasexch.cc.com
+DOMAIN-SUFFIX,saasexch.com
+DOMAIN-SUFFIX,saasexch.cc
 DOMAIN-SUFFIX,binancecnt.com
 DOMAIN-SUFFIX,binancefuture.com
 DOMAIN-SUFFIX,bnbzh.ac
