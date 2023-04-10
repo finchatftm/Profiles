@@ -7,6 +7,10 @@ DOMAIN-SUFFIX,liquiddriver.finance
 DOMAIN-SUFFIX,spooky.fi
 DOMAIN-SUFFIX,swapline.com
 
+# RPC
+DOMAIN-SUFFIX,ankr.com
+DOMAIN-SUFFIX,fantom.network
+
 # News
 DOMAIN-SUFFIX,chainfeeds.xyz
 DOMAIN-SUFFIX,foresightnews.pro
