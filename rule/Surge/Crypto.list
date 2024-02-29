@@ -8,8 +8,9 @@ DOMAIN-SUFFIX,spooky.fi
 #DOMAIN-SUFFIX,swapline.com
 
 # RPC
-#DOMAIN-SUFFIX,ankr.com
-#DOMAIN-SUFFIX,fantom.network
+DOMAIN-SUFFIX,ankr.com
+DOMAIN-SUFFIX,fantom.network
+DOMAIN-SUFFIX,polygon-rpc.com
 
 # News
 DOMAIN-SUFFIX,chainfeeds.xyz
@@ -20,6 +21,7 @@ DOMAIN-SUFFIX,techflowpost.com
 # Tools
 DOMAIN-SUFFIX,substack.com
 DOMAIN-SUFFIX,coinmarketcap.com
+DOMAIN-SUFFIX,dexscreener.com
 
 #wallet
 DOMAIN-SUFFIX,okex.org
