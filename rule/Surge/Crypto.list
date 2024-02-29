@@ -20,3 +20,10 @@ DOMAIN-SUFFIX,techflowpost.com
 # Tools
 DOMAIN-SUFFIX,substack.com
 DOMAIN-SUFFIX,coinmarketcap.com
+
+#wallet
+DOMAIN-SUFFIX,okex.org
+DOMAIN-SUFFIX,okx-httpdns.com
+DOMAIN-SUFFIX,sui.io
+DOMAIN-SUFFIX,phantom.app
+DOMAIN-SUFFIX,keplr.app
