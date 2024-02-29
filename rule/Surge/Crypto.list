@@ -7,6 +7,9 @@ DOMAIN-SUFFIX,liquiddriver.finance
 DOMAIN-SUFFIX,spooky.fi
 #DOMAIN-SUFFIX,swapline.com
 
+# metis
+DOMAIN-SUFFIX,metisdevops.link
+
 # RPC
 DOMAIN-SUFFIX,ankr.com
 DOMAIN-SUFFIX,fantom.network
@@ -24,6 +27,7 @@ DOMAIN-SUFFIX,coinmarketcap.com
 DOMAIN-SUFFIX,dexscreener.com
 
 #wallet
+DOMAIN-SUFFIX,walletconnect.org
 DOMAIN-SUFFIX,okex.org
 DOMAIN-SUFFIX,okx-httpdns.com
 DOMAIN-SUFFIX,sui.io
