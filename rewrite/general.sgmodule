@@ -1,1 +1,6 @@
+#!name=使用优化
+#!desc=根据个人使用情况优化使用体验
+#!system=ios
 
+[Rule]
+DOMAIN-SUFFIX,zijieapi.com,DIRECT,extended-matching
