@@ -26,16 +26,18 @@ DOMAIN-SUFFIX,okx.com
 DOMAIN-SUFFIX,couyi.pizza
 DOMAIN-SUFFIX,coinall.ltd.com
 # Bybit
-DOMAIN-SUFFIX, bybit.com
-DOMAIN-SUFFIX, bybit.biz
-DOMAIN-SUFFIX, bybit.cloud
-DOMAIN-SUFFIX, bymj.io
-DOMAIN-SUFFIX, byd3c3.com
-DOMAIN-SUFFIX, contentstack.io
-DOMAIN-SUFFIX, bybdc6.com
-DOMAIN-SUFFIX, byabcde.com
-DOMAIN-SUFFIX, bitverse.zone
-DOMAIN-SUFFIX, bybitglobal.com
-DOMAIN-SUFFIX, bybit-global.com
-DOMAIN-SUFFIX, byapps.net
-DOMAIN-SUFFIX, bycsi.com
+DOMAIN-SUFFIX,bybit.com
+DOMAIN-SUFFIX,bybit.biz
+DOMAIN-SUFFIX,bybit.cloud
+DOMAIN-SUFFIX,bymj.io
+DOMAIN-SUFFIX,byd3c3.com
+DOMAIN-SUFFIX,contentstack.io
+DOMAIN-SUFFIX,bybdc6.com
+DOMAIN-SUFFIX,byabcde.com
+DOMAIN-SUFFIX,bitverse.zone
+DOMAIN-SUFFIX,bybitglobal.com
+DOMAIN-SUFFIX,bybit-global.com
+DOMAIN-SUFFIX,byapps.net
+DOMAIN-SUFFIX,bycsi.com
+# Coinbase
+DOMAIN-SUFFIX,coinbase.com
