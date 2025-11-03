@@ -1,0 +1,45 @@
+name: Sync Crypto Lists
+
+on:
+  push:
+    paths:
+      - 'rule/Surge/crypto_no_us.list'
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Convert Surge list to Clash yaml
+        run: |
+          echo "payload:" > rule/Clash/crypto_no_us.yaml
+          while IFS= read -r line || [ -n "$line" ]; do
+            # 跳过空行和注释行
+            if [[ ! -z "$line" ]] && [[ ! "$line" =~ ^# ]]; then
+              echo "  - '$line'" >> rule/Clash/crypto_no_us.yaml
+            fi
+          done < rule/Surge/crypto_no_us.list
+
+      - name: Check for changes
+        id: verify_diff
+        run: |
+          git diff --quiet rule/Clash/crypto_no_us.yaml || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.verify_diff.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add rule/Clash/crypto_no_us.yaml
+          git commit -m "🤖 Auto-sync: Update Clash crypto_no_us.yaml from Surge list"
+          git push
