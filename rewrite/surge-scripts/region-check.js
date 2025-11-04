@@ -6,8 +6,6 @@
  * surge:///v1/scripting/evaluate?script_name=域名检测&domain=binance.com&nodes=美国节点,日本节点,直连
  */
 
-const $ = new Surge();
-
 // ============ 配置区 ============
 const CONFIG = {
     // 默认测试的节点列表（可通过参数覆盖）
@@ -45,8 +43,8 @@ async function main() {
         const nodesParam = $argument.nodes;
         const nodes = nodesParam ? nodesParam.split(',').map(n => n.trim()) : CONFIG.defaultNodes;
         
-        $.log(`开始检测域名: ${domain}`);
-        $.log(`测试节点: ${nodes.join(', ')}`);
+        console.log(`开始检测域名: ${domain}`);
+        console.log(`测试节点: ${nodes.join(', ')}`);
         
         // 执行检测
         const results = await testDomain(domain, nodes);
@@ -55,10 +53,10 @@ async function main() {
         const report = generateReport(domain, results);
         
         // 输出结果
-        $.log(report.text);
+        console.log(report.text);
         
         // 显示通知
-        $.notify(
+        $notification.post(
             '🔍 域名检测完成',
             `域名: ${domain}`,
             report.summary
@@ -73,9 +71,9 @@ async function main() {
         });
         
     } catch (error) {
-        $.log(`❌ 错误: ${error.message}`);
-        $.log(error.stack);
-        $.notify('域名检测失败', '', error.message);
+        console.log(`❌ 错误: ${error.message}`);
+        console.log(error.stack);
+        $notification.post('域名检测失败', '', error.message);
         $done({
             title: '检测失败',
             content: error.message,
@@ -91,7 +89,7 @@ async function testDomain(domain, nodes) {
     const results = [];
     
     for (const nodeName of nodes) {
-        $.log(`测试节点: ${nodeName}`);
+        console.log(`测试节点: ${nodeName}`);
         
         const result = await testWithNode(url, nodeName);
         results.push({
