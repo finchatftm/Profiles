@@ -138,10 +138,14 @@ async function getDomainList() {
     const domains = new Set();
     
     // 方法1: 从参数获取（手动指定）
-    if ($argument.domains) {
-        const manualDomains = $argument.domains.split(',').map(d => d.trim());
-        manualDomains.forEach(d => domains.add(d));
-        console.log(`从参数获取 ${manualDomains.length} 个域名`);
+    try {
+        if (typeof $argument !== 'undefined' && $argument && $argument.domains) {
+            const manualDomains = $argument.domains.split(',').map(d => d.trim());
+            manualDomains.forEach(d => domains.add(d));
+            console.log(`从参数获取 ${manualDomains.length} 个域名`);
+        }
+    } catch (error) {
+        console.log(`无法读取参数: ${error.message}`);
     }
     
     // 方法2: 尝试从 Surge 最近请求获取
