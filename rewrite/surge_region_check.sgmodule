@@ -1,0 +1,17 @@
+#!name=域名地区限制检测
+#!desc=单个域名检测 + 批量自动检测
+#!system=ios
+
+[Script]
+# 单个域名检测
+域名检测 = type=generic,timeout=30,script-path=https://raw.githubusercontent.com/finchatftm/Profiles/refs/heads/main/rewrite/surge-scripts/region-check.js
+
+# 批量检测
+批量检测 = type=generic,timeout=120,script-path=https://raw.githubusercontent.com/finchatftm/Profiles/refs/heads/main/rewrite/surge-scripts/batch-check.js
+
+[Panel]
+# 单个域名检测面板
+域名检测 = script-name=域名检测,update-interval=-1,title=🔍 检测域名,content=点击检测单个域名
+
+# 批量检测面板
+批量检测 = script-name=批量检测,update-interval=-1,title=📋 批量检测,content=点击批量检测所有域名
