@@ -5,8 +5,6 @@
  * 功能：自动获取最近访问记录，批量检测地区限制，生成规则文件
  */
 
-const $ = new Surge();
-
 // ============ 配置区 ============
 const CONFIG = {
     // 测试节点配置 - 请修改为你的实际节点名称
@@ -64,51 +62,51 @@ const CONFIG = {
 async function main() {
     try {
         // 显示开始通知
-        $.notify('🔍 开始批量检测', '', '正在获取域名列表...');
-        $.log('========== 批量检测开始 ==========');
+        $notification.post('🔍 开始批量检测', '', '正在获取域名列表...');
+        console.log('========== 批量检测开始 ==========');
         
         // 1. 获取域名列表
-        $.log('步骤 1: 获取域名列表');
+        console.log('步骤 1: 获取域名列表');
         let domains = await getDomainList();
         
         if (domains.length === 0) {
             throw new Error('未找到可检测的域名');
         }
         
-        $.log(`发现 ${domains.length} 个域名`);
+        console.log(`发现 ${domains.length} 个域名`);
         
         // 2. 过滤域名
-        $.log('步骤 2: 过滤域名');
+        console.log('步骤 2: 过滤域名');
         domains = filterDomains(domains);
-        $.log(`过滤后剩余 ${domains.length} 个域名待检测`);
+        console.log(`过滤后剩余 ${domains.length} 个域名待检测`);
         
         if (domains.length === 0) {
             throw new Error('过滤后没有需要检测的域名');
         }
         
         // 更新进度
-        $.notify('📋 准备就绪', '', `将检测 ${domains.length} 个域名`);
+        $notification.post('📋 准备就绪', '', `将检测 ${domains.length} 个域名`);
         
         // 3. 批量检测
-        $.log('步骤 3: 开始批量检测');
+        console.log('步骤 3: 开始批量检测');
         const results = await batchTestDomains(domains);
         
         // 4. 分析结果
-        $.log('步骤 4: 分析结果');
+        console.log('步骤 4: 分析结果');
         const analysis = analyzeResults(results);
         
         // 5. 生成规则文件
-        $.log('步骤 5: 生成规则文件');
+        console.log('步骤 5: 生成规则文件');
         const ruleContent = generateRuleFile(analysis.blockedDomains);
         
         // 6. 生成报告
         const report = generateReport(analysis, domains.length);
         
         // 输出日志
-        $.log(report.detailedLog);
+        console.log(report.detailedLog);
         
         // 显示完成通知
-        $.notify(
+        $notification.post(
             '✅ 检测完成',
             `发现 ${analysis.blockedCount} 个受限域名`,
             '规则已复制到剪贴板'
@@ -123,9 +121,9 @@ async function main() {
         });
         
     } catch (error) {
-        $.log(`❌ 错误: ${error.message}`);
-        $.log(error.stack);
-        $.notify('❌ 检测失败', '', error.message);
+        console.log(`❌ 错误: ${error.message}`);
+        console.log(error.stack);
+        $notification.post('❌ 检测失败', '', error.message);
         $done({
             title: '检测失败',
             content: error.message,
@@ -143,21 +141,21 @@ async function getDomainList() {
     if ($argument.domains) {
         const manualDomains = $argument.domains.split(',').map(d => d.trim());
         manualDomains.forEach(d => domains.add(d));
-        $.log(`从参数获取 ${manualDomains.length} 个域名`);
+        console.log(`从参数获取 ${manualDomains.length} 个域名`);
     }
     
     // 方法2: 尝试从 Surge 最近请求获取
     try {
         const recentDomains = await getRecentRequestDomains();
         recentDomains.forEach(d => domains.add(d));
-        $.log(`从最近请求获取 ${recentDomains.length} 个域名`);
+        console.log(`从最近请求获取 ${recentDomains.length} 个域名`);
     } catch (error) {
-        $.log(`无法获取最近请求: ${error.message}`);
+        console.log(`无法获取最近请求: ${error.message}`);
     }
     
     // 如果没有获取到域名，使用预设列表
     if (domains.size === 0 && CONFIG.useFallbackList) {
-        $.log('使用预设域名列表');
+        console.log('使用预设域名列表');
         const fallbackDomains = getFallbackDomainList();
         fallbackDomains.forEach(d => domains.add(d));
     }
@@ -169,27 +167,15 @@ async function getDomainList() {
 async function getRecentRequestDomains() {
     const domains = new Set();
     
-    // 尝试从 Surge 内部 API 获取
-    try {
-        // 注意：这个 API 可能因 Surge 版本而异
-        if (typeof $surge !== 'undefined') {
-            // 尝试获取最近的请求
-            const recentRequests = $surge.recentRequests || [];
-            recentRequests.forEach(req => {
-                const domain = extractDomain(req.hostname || req.url);
-                if (domain) domains.add(domain);
-            });
-        }
-    } catch (error) {
-        $.log(`Surge API 不可用: ${error.message}`);
-    }
+    // 注意：Surge 的 API 可能因版本而异，这里提供一个基础实现
+    // 实际使用中可能需要根据具体版本调整
     
     return Array.from(domains);
 }
 
 // 预设域名列表（作为备用）
 function getFallbackDomainList() {
-    $.log('⚠️ 使用预设加密货币域名列表');
+    console.log('⚠️ 使用预设加密货币域名列表');
     return [
         // 币安相关
         'binance.com',
@@ -249,7 +235,7 @@ function filterDomains(domains) {
         
         // 排除特定域名
         if (shouldExcludeDomain(normalized)) {
-            $.log(`  排除: ${normalized}`);
+            console.log(`  排除: ${normalized}`);
             continue;
         }
         
@@ -282,7 +268,7 @@ function normalizeDomain(domain) {
         
         return domain;
     } catch (error) {
-        $.log(`域名标准化失败: ${domain}`);
+        console.log(`域名标准化失败: ${domain}`);
         return null;
     }
 }
@@ -336,11 +322,11 @@ async function batchTestDomains(domains) {
         const domain = domains[i];
         const progress = `${i + 1}/${total}`;
         
-        $.log(`[${progress}] 检测: ${domain}`);
+        console.log(`[${progress}] 检测: ${domain}`);
         
         // 更新进度通知（每10个更新一次）
         if (i % 10 === 0 || i === total - 1) {
-            $.notify('🔄 检测中', `进度: ${progress}`, domain);
+            $notification.post('🔄 检测中', `进度: ${progress}`, domain);
         }
         
         try {
@@ -352,7 +338,7 @@ async function batchTestDomains(domains) {
                 await sleep(CONFIG.requestInterval);
             }
         } catch (error) {
-            $.log(`  ❌ 检测失败: ${error.message}`);
+            console.log(`  ❌ 检测失败: ${error.message}`);
             results.push({
                 domain: domain,
                 error: error.message,
@@ -377,17 +363,17 @@ async function testDomainWithNodes(domain) {
     };
     
     // 测试美国节点
-    $.log(`  测试美国节点...`);
+    console.log(`  测试美国节点...`);
     result.tests.us = await testWithNode(url, CONFIG.testNodes.us);
     
     // 如果美国节点可访问，无需继续测试
     if (result.tests.us.accessible) {
-        $.log(`  ✅ 美国节点可访问，跳过后续测试`);
+        console.log(`  ✅ 美国节点可访问，跳过后续测试`);
         return result;
     }
     
     // 测试日本节点
-    $.log(`  测试日本节点...`);
+    console.log(`  测试日本节点...`);
     result.tests.jp = await testWithNode(url, CONFIG.testNodes.jp);
     
     // 判断是否需要代理
@@ -396,9 +382,9 @@ async function testDomainWithNodes(domain) {
     result.needsProxy = result.usBlocked && result.jpAccessible;
     
     if (result.needsProxy) {
-        $.log(`  🔒 需要代理: ${domain}`);
+        console.log(`  🔒 需要代理: ${domain}`);
     } else {
-        $.log(`  ℹ️ 无需代理`);
+        console.log(`  ℹ️ 无需代理`);
     }
     
     return result;
@@ -531,7 +517,7 @@ function generateRuleFile(blockedDomains) {
     
     // 复制到剪贴板
     $clipboard.set(content);
-    $.log(`✅ 规则已复制到剪贴板`);
+    console.log(`✅ 规则已复制到剪贴板`);
     
     return content;
 }
