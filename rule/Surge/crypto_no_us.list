@@ -41,3 +41,6 @@ DOMAIN-SUFFIX,byapps.net
 DOMAIN-SUFFIX,bycsi.com
 # Coinbase
 DOMAIN-SUFFIX,coinbase.com
+
+# On-Chain
+OMAIN-SUFFIX,liquifi.finance
