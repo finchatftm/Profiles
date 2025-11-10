@@ -1,4 +1,3 @@
-cat > /tmp/install-fail2ban.sh << 'EOF'
 #!/bin/bash
 
 #############################################
@@ -94,7 +93,7 @@ check_services() {
         log_warn "未检测到 Sing-box 服务"
     fi
     
-    if systemctl list-units --full --all | grep -q "snell.service"; then
+    if systemctl list-units --full --all | grep -q "snell-server.service"; then
         SNELL_EXISTS=true
         log_info "检测到 Snell 服务"
     else
@@ -589,4 +588,3 @@ main() {
 # 执行主函数
 main
 
-EOF
