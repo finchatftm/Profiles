@@ -40,3 +40,4 @@ payload:
   - 'DOMAIN-SUFFIX,bycsi.com'
   - 'DOMAIN-SUFFIX,coinbase.com'
   - 'DOMAIN-SUFFIX,liquifi.finance'
+  - 'DOMAIN-SUFFIX,pancakeswap.finance'
