@@ -19,6 +19,7 @@ payload:
   - 'DOMAIN-SUFFIX,appsflyersdk.com'
   - 'DOMAIN-SUFFIX,app-analytics-services.com'
   - 'DOMAIN-SUFFIX,devfdg.net'
+  - 'DOMAIN-SUFFIX,walletconnect.com'
   - 'DOMAIN-SUFFIX,okex.com'
   - 'DOMAIN-SUFFIX,oklink.com'
   - 'DOMAIN-SUFFIX,okx.com'
