@@ -56,6 +56,6 @@ DOMAIN-SUFFIX,dynamicauth.com
 DOMAIN-SUFFIX,debank.com
 DOMAIN-SUFFIX,locize.app
 DOMAIN-SUFFIX,ethena.fi
-
+DOMAIN-SUFFIX,polymarket.com
 # blocked by website
 DOMAIN-SUFFIX,novipnoad.com
